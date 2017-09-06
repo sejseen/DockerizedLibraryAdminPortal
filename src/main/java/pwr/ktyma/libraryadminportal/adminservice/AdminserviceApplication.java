@@ -25,16 +25,16 @@ public class AdminserviceApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... strings) throws Exception {
-		User admin = new User();
-		admin.setUsername("admin");
-		admin.setPassword(SecurityUtility.passwordEncoder().encode("admin"));
-		admin.setEmail("admin@gmail.com");
-		Set<UserRole> adminRoles = new HashSet<>();
-		Role adm = new Role();
-		adm.setRoleId(0);
-		adm.setName("ROLE_ADMIN");
-		adminRoles.add(new UserRole(admin, adm));
-
-		userService.createUser(admin, adminRoles);
+//		User admin = new User();
+//		admin.setUsername("admin");
+//		admin.setPassword(SecurityUtility.passwordEncoder().encode("admin"));
+//		admin.setEmail("admin@gmail.com");
+//		Set<UserRole> adminRoles = new HashSet<>();
+//		Role adm = new Role();
+//		adm.setRoleId(0);
+//		adm.setName("ROLE_ADMIN");
+//		adminRoles.add(new UserRole(admin, adm));
+//
+//		userService.createUser(admin, adminRoles);
 	}
 }
