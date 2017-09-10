@@ -23,10 +23,8 @@ public class Book {
     private String category;
     private int numberOfPages;
     private String format;
-    private int isbn;
     private double shippingWeight;
-    private double listPrice;
-    private double ourPrice;
+    private double priceForRent;
     private boolean active = true;
 
     @Column(columnDefinition = "text")
@@ -107,36 +105,12 @@ public class Book {
         this.format = format;
     }
 
-    public int getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(int isbn) {
-        this.isbn = isbn;
-    }
-
     public double getShippingWeight() {
         return shippingWeight;
     }
 
     public void setShippingWeight(double shippingWeight) {
         this.shippingWeight = shippingWeight;
-    }
-
-    public double getListPrice() {
-        return listPrice;
-    }
-
-    public void setListPrice(double listPrice) {
-        this.listPrice = listPrice;
-    }
-
-    public double getOurPrice() {
-        return ourPrice;
-    }
-
-    public void setOurPrice(double ourPrice) {
-        this.ourPrice = ourPrice;
     }
 
     public boolean isActive() {
@@ -169,5 +143,13 @@ public class Book {
 
     public void setBookImage(MultipartFile bookImage) {
         this.bookImage = bookImage;
+    }
+
+    public double getPriceForRent() {
+        return priceForRent;
+    }
+
+    public void setPriceForRent(double priceForRent) {
+        this.priceForRent = priceForRent;
     }
 }
