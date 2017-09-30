@@ -4,7 +4,34 @@
 
 <body>
 <div th:replace="common/header :: navbar" />
-<h1>Book List Page</h1>
+
+<div class="container">
+<h3>List of books for current admin</h3>
+    <div class="table-responsive">
+        <table id="bookListTable" class="table table-bordered table hover table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                    <th>Active ?</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-th-each="book : ${bookList}">
+                    <td th:text="${book.title}" ></td>
+                    <td th:text="${book.author}" ></td>
+                    <td th:text="${book.category}" ></td>
+                    <td th:text="${book.active}" ></td>
+                    <td>delete</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
 <div th:replace="common/header :: body-bottom-scripts" />
 </body>
 </html>

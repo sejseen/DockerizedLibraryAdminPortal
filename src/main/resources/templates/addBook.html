@@ -28,7 +28,7 @@
             </div>
         </div>
        <div class="form-group">
-             <label class="col-md-2 control-label" for="publisher">* Author</label>
+             <label class="col-md-2 control-label" for="publisher">* Publisher</label>
            <div class="col-md-8">
              <input type="text" class="form-control" id="publisher"  th:value="${book.publisher}" placeholder="Publisher"/>
              <span class="help-block"> Publisher of a book </span>
@@ -111,7 +111,7 @@
                 <label class="col-md-2 control-label" for="inStockNumber"> Number of in stock number</label>
                 <div class="col-md-8">
                     <div class="input-group">
-                        <span class="input-group-addon">$</span>
+                        <span class="input-group-addon">Nm</span>
                         <input th:value="${book.inStockNumber}" type="number" name="inStockNumber"
                                class="form-control" id="inStockNumber" placeholder="Number of in stock number"/>
                     </div>
