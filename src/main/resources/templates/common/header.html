@@ -11,6 +11,10 @@
 
     <title>University Library Admin Portal</title>
 
+    <!--Datatable content-->
+    <link th:href="@{/css/jquery.dataTables.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/dataTables.bootstrap.min.css}" rel="stylesheet" />
+
     <!-- Bootstrap core CSS -->
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
 
@@ -59,6 +63,10 @@
 <div th:fragment="body-bottom-scripts">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script th:src="@{/js/bootstrap.min.js}"></script>
+
+    <!--Datatable content-->
+    <script th:src="@{/js/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/js/dataTables.bootstrap.min.js}"></script>
 </div>
 </body>
 </html>
