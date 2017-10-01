@@ -27,4 +27,4 @@ nbdist/
 application.properties
 
 ###Image of Books
-src/main/resources/static/image/book/
+#src/main/resources/static/image/book/
