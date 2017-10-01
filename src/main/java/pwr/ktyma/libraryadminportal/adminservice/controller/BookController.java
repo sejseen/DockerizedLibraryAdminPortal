@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import pwr.ktyma.libraryadminportal.adminservice.domain.Book;
 import pwr.ktyma.libraryadminportal.adminservice.service.BookService;
@@ -58,6 +59,14 @@ public class BookController {
         return "bookList";
     }
 
+    @RequestMapping("/bookInfo")
+    public String bookInfo(@RequestParam("id") Long id, Model model) {
+        Book book = bookService.findOne(id);
+        model.addAttribute("book", book);
+
+        return "bookInfo";
+    }
+
     private void uploadImage(@ModelAttribute("book") Book book) throws IOException {
         MultipartFile bookImage = book.getBookImage();
         byte[] bytes = bookImage.getBytes();
@@ -67,4 +76,5 @@ public class BookController {
         stream.write(bytes);
         stream.close();
     }
+
 }

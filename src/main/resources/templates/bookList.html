@@ -20,7 +20,7 @@
             </thead>
             <tbody>
                 <tr data-th-each="book : ${bookList}">
-                    <td th:text="${book.title}" ></td>
+                    <td><a th:href="@{/book/bookInfo(id=${book.id})}"><span th:text="${book.title}" ></span></a></td>
                     <td th:text="${book.author}" ></td>
                     <td th:text="${book.category}" ></td>
                     <td th:text="${book.active}" ></td>
