@@ -15,7 +15,7 @@
         <div class="form-group">
             <label class="col-md-2 control-label" for="title">* Title </label>
             <div class="col-md-8">
-                <input type="text" class="form-control" id="title"  th:value="${book.title}" placeholder="Title"/>
+                <input type="text" name = "title" class="form-control" id="title"  th:value="${book.title}" placeholder="Title"/>
             <span class="help-block"> Title of book </span>
             </div>
         </div>
@@ -23,14 +23,14 @@
         <div class="form-group">
             <label class="col-md-2 control-label" for="author">* Author</label>
             <div class="col-md-8">
-            <input type="text" class="form-control" id="author"  th:value="${book.author}" placeholder="Author"/>
+            <input type="text" name="author" class="form-control" id="author"  th:value="${book.author}" placeholder="Author"/>
             <span class="help-block"> Author of book </span>
             </div>
         </div>
        <div class="form-group">
              <label class="col-md-2 control-label" for="publisher">* Publisher</label>
            <div class="col-md-8">
-             <input type="text" class="form-control" id="publisher"  th:value="${book.publisher}" placeholder="Publisher"/>
+             <input type="text" name="publisher" class="form-control" id="publisher"  th:value="${book.publisher}" placeholder="Publisher"/>
              <span class="help-block"> Publisher of a book </span>
            </div>
         </div>
@@ -38,7 +38,7 @@
             <div class="form-group">
                 <label class="col-md-2 control-label" for="publicationDate">* PublicationDate</label>
                 <div class="col-md-8">
-                <input type="data" class="form-control" id="publicationDate"  th:value="${book.publicationDate}" placeholder="publicationDate"/>
+                <input type="data" name="publicationDate" class="form-control" id="publicationDate"  th:value="${book.publicationDate}" placeholder="publicationDate"/>
                 <span class="help-block"> Publication date of a book </span>
                 </div>
             </div>
@@ -46,7 +46,7 @@
             <div class="form-group">
                 <label class="col-md-2 control-label" for="language">* Language</label>
                 <div class="col-md-8">
-                    <select th:value="${book.language}" id="language" class="form-control">
+                    <select th:value="${book.language}" id="language" name="language" class="form-control">
                         <option value="Polish"> Polish</option>
                         <option value="Spanish"> Spanish</option>
                         <option value="English"> English</option>
@@ -57,7 +57,7 @@
             <div class="form-group">
                 <label class="col-md-2 control-label" for="category">* Category</label>
                 <div class="col-md-8">
-                    <select th:value="${book.category}" id="category" class="form-control">
+                    <select th:value="${book.category}" name="category" id="category" class="form-control">
                         <option value="" selected="selected" disabled="disabled"> Please Select an option ... </option>
                         <option value="Literature" th:selected="(${book.category} == 'Literature')"> Literature</option>
                         <option value="Programming" th:selected="(${book.category} == 'Programming')"> Programming</option>
@@ -72,7 +72,7 @@
             <div class="form-group">
                 <label class="col-md-2 control-label" for="numberOfPages">* Number of pages</label>
                 <div class="col-md-8">
-                <input type="data" class="form-control" id="numberOfPages"  th:value="${book.numberOfPages}" placeholder="numberOfPages"/>
+                <input type="data" class="form-control" name="numberOfPages" id="numberOfPages"  th:value="${book.numberOfPages}" placeholder="numberOfPages"/>
                 <span class="help-block"> Number of pages of the book </span>
                 </div>
             </div>
@@ -80,7 +80,7 @@
             <div class="form-group">
                 <label class="col-md-2 control-label" for="format">* Format</label>
                 <div class="col-md-8">
-                    <select th:value="${book.format}" id="format" class="form-control">
+                    <select th:value="${book.format}" name="format" id="format" class="form-control">
                         <option value="Paperback"> Paperback</option>
                         <option value="Hardcover"> Hardcover</option>
                     </select>
@@ -90,7 +90,7 @@
             <div class="form-group">
                 <label class="col-md-2 control-label" for="shippingWeight">* Shipping weight</label>
                 <div class="col-md-8">
-                <input type="data" class="form-control" id="shippingWeight"  th:value="${book.shippingWeight}" placeholder="shippingWeight"/>
+                <input type="data" class="form-control" name="shippingWeight" id="shippingWeight"  th:value="${book.shippingWeight}" placeholder="shippingWeight"/>
                 <span class="help-block"> Shipping weight of the book </span>
                 </div>
             </div>
@@ -159,7 +159,6 @@
                     <a class="btn btn-danger" th:href="@{/}">Cancel</a>
                  </div>
                 </div>
-                <span class="help-block">Description of the book</span>
             </div>
 
             <button type="submit" class="btn btn-default">Submit</button>

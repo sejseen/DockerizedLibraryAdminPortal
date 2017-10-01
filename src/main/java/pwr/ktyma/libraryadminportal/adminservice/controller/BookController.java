@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import pwr.ktyma.libraryadminportal.adminservice.domain.Book;
 import pwr.ktyma.libraryadminportal.adminservice.service.BookService;
@@ -22,12 +23,12 @@ import java.util.List;
 @RequestMapping("/book")
 public class BookController {
 
-    private final String STATIC_RESOURCES_PATH = "src/main/resources/static/image/book/";
+    private final String STATIC_RESOURCES_PATH = "src/main/resources/static/image/book";
 
     @Autowired
     BookService bookService;
 
-    @GetMapping(value = "/add")
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addBook(Model model) {
         Book book = new Book();
         model.addAttribute("book", book);
@@ -35,14 +36,16 @@ public class BookController {
         return "addBook";
     }
 
-    @PostMapping(value = "/add")
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addBookPost(@ModelAttribute("book") Book book, HttpServletRequest request) {
         bookService.save(book);
 
-        try {
-            uploadImage(book);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(book.getBookImage() != null) {
+            try {
+                uploadImage(book);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return "redirect:bookList";
     }
@@ -58,7 +61,7 @@ public class BookController {
     private void uploadImage(@ModelAttribute("book") Book book) throws IOException {
         MultipartFile bookImage = book.getBookImage();
         byte[] bytes = bookImage.getBytes();
-        String name = book.getId() + ".png";
+        String name = "/book" + book.getId() + ".png";
         BufferedOutputStream stream = new BufferedOutputStream(
                 new FileOutputStream(new File(STATIC_RESOURCES_PATH) + name));
         stream.write(bytes);
