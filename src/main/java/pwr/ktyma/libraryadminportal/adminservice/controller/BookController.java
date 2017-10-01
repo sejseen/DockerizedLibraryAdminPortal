@@ -18,6 +18,8 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 @Controller
@@ -40,10 +42,11 @@ public class BookController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addBookPost(@ModelAttribute("book") Book book, HttpServletRequest request) {
         bookService.save(book);
+        MultipartFile bookImage = book.getBookImage();
 
-        if(book.getBookImage() != null) {
+        if(!bookImage.isEmpty()) {
             try {
-                uploadImage(book);
+                uploadImage(book, false);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -67,10 +70,39 @@ public class BookController {
         return "bookInfo";
     }
 
-    private void uploadImage(@ModelAttribute("book") Book book) throws IOException {
+    @RequestMapping("/updateBook")
+    public String updateBook(@RequestParam("id") Long id, Model model) {
+        Book book = bookService.findOne(id);
+        model.addAttribute("book", book);
+
+        return "updateBook";
+    }
+
+    @RequestMapping(value="/updateBook", method = RequestMethod.POST)
+    public String updateBookPost(@ModelAttribute("book") Book book, HttpServletRequest request) {
+        bookService.save(book);
+
+        MultipartFile bookImage = book.getBookImage();
+        if(!bookImage.isEmpty()) {
+            try {
+                uploadImage(book, true);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return "redirect:bookInfo?id=" + book.getId();
+    }
+
+    private void uploadImage(Book book, Boolean isUpdated) throws IOException {
         MultipartFile bookImage = book.getBookImage();
         byte[] bytes = bookImage.getBytes();
         String name = "/book" + book.getId() + ".png";
+
+        if(isUpdated && Files.exists(Paths.get(STATIC_RESOURCES_PATH + name))) {
+            Files.delete(Paths.get(STATIC_RESOURCES_PATH + name));
+        }
+
         BufferedOutputStream stream = new BufferedOutputStream(
                 new FileOutputStream(new File(STATIC_RESOURCES_PATH) + name));
         stream.write(bytes);

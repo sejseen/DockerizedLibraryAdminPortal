@@ -100,7 +100,7 @@
                 <div class="col-md-8">
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input th:value="${book.priceForRent}" type="number" name="priceForRent"
+                        <input th:value="${book.priceForRent}" type="number" name="priceForRent" step="0.01"
                         class="form-control" id="priceForRent" placeholder="Our price for rent"/>
                     </div>
                     <span class="help-block">Our price for rent of this book</span>
@@ -150,18 +150,14 @@
                     <div class="col-md-8">
                     <input id="bookImage" type="file" name="bookImage" th:value="${book.bookImage}" />
                     </div>
-
-
-                <div class="form-group">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
-                    <button type="submit" class="btn btn-success"> Add Image</button>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <button type="submit" class="btn btn-success"> Add Book</button>
                     <a class="btn btn-danger" th:href="@{/}">Cancel</a>
-                 </div>
                 </div>
             </div>
-
-            <button type="submit" class="btn btn-default">Submit</button>
         </fieldset>
         </form>
     </div>
