@@ -1,13 +1,17 @@
 package pwr.ktyma.libraryadminportal.adminservice.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
+import pwr.ktyma.libraryadminportal.adminservice.domain.order.BookToCartItem;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
+import java.util.List;
 
 @Entity
 public class Book {
@@ -32,6 +36,11 @@ public class Book {
     private int inStockNumber;
     @Transient
     private MultipartFile bookImage;
+
+
+    @OneToMany(mappedBy = "book")
+    @JsonIgnore
+    private List<BookToCartItem> bookToCartItemList;
 
     public Long getId() {
         return id;
@@ -151,5 +160,14 @@ public class Book {
 
     public void setPriceForRent(double priceForRent) {
         this.priceForRent = priceForRent;
+    }
+
+
+    public List<BookToCartItem> getBookToCartItemList() {
+        return bookToCartItemList;
+    }
+
+    public void setBookToCartItemList(List<BookToCartItem> bookToCartItemList) {
+        this.bookToCartItemList = bookToCartItemList;
     }
 }

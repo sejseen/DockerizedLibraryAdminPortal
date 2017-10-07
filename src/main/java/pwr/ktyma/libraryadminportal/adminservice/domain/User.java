@@ -1,21 +1,18 @@
 package pwr.ktyma.libraryadminportal.adminservice.domain;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import pwr.ktyma.libraryadminportal.adminservice.domain.authorise.Authorithy;
 import pwr.ktyma.libraryadminportal.adminservice.domain.authorise.UserRole;
+import pwr.ktyma.libraryadminportal.adminservice.domain.billing.UserPayment;
+import pwr.ktyma.libraryadminportal.adminservice.domain.billing.UserShipping;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -34,6 +31,12 @@ public class User implements UserDetails {
     private String lastName;
     private String phone;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<UserShipping> userShippingList;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<UserPayment> userPaymentsList;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
     private Set<UserRole> userRoles = new HashSet<>();
@@ -43,12 +46,17 @@ public class User implements UserDetails {
     public User() {
     }
 
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<Authorithy> authorithies = new HashSet<>();
         userRoles.forEach(user -> authorithies.add(new Authorithy(user.getRole().getName())));
 
         return authorithies;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getId() {
@@ -135,5 +143,21 @@ public class User implements UserDetails {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public List<UserShipping> getUserShippingList() {
+        return userShippingList;
+    }
+
+    public void setUserShippingList(List<UserShipping> userShippingList) {
+        this.userShippingList = userShippingList;
+    }
+
+    public List<UserPayment> getUserPaymentsList() {
+        return userPaymentsList;
+    }
+
+    public void setUserPaymentsList(List<UserPayment> userPaymentsList) {
+        this.userPaymentsList = userPaymentsList;
     }
 }
