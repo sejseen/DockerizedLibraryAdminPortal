@@ -8,6 +8,7 @@ import pwr.ktyma.libraryadminportal.adminservice.domain.authorise.Authorithy;
 import pwr.ktyma.libraryadminportal.adminservice.domain.authorise.UserRole;
 import pwr.ktyma.libraryadminportal.adminservice.domain.billing.UserPayment;
 import pwr.ktyma.libraryadminportal.adminservice.domain.billing.UserShipping;
+import pwr.ktyma.libraryadminportal.adminservice.domain.order.OnlineShoppingCart;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -42,6 +43,9 @@ public class User implements UserDetails {
     private Set<UserRole> userRoles = new HashSet<>();
 
     private boolean enabled = true;
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
+    private OnlineShoppingCart shoppingCart;
 
     public User() {
     }
@@ -159,5 +163,13 @@ public class User implements UserDetails {
 
     public void setUserPaymentsList(List<UserPayment> userPaymentsList) {
         this.userPaymentsList = userPaymentsList;
+    }
+
+    public OnlineShoppingCart getShoppingCart() {
+        return shoppingCart;
+    }
+
+    public void setShoppingCart(OnlineShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
     }
 }
