@@ -37,4 +37,5 @@ public class AdminserviceApplication implements CommandLineRunner{
 //
 //		userService.createUser(admin, adminRoles);
 	}
+
 }
