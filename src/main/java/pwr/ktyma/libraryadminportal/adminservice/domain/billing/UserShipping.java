@@ -1,5 +1,7 @@
 package pwr.ktyma.libraryadminportal.adminservice.domain.billing;
 
+import lombok.Getter;
+import lombok.Setter;
 import pwr.ktyma.libraryadminportal.adminservice.domain.User;
 
 import javax.persistence.Entity;
@@ -10,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
+@Getter
+@Setter
 public class UserShipping {
 
     @Id
@@ -28,75 +32,4 @@ public class UserShipping {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Long getId() {
-        return Id;
-    }
-
-    public void setId(Long id) {
-        Id = id;
-    }
-
-    public String getUserShippingName() {
-        return userShippingName;
-    }
-
-    public void setUserShippingName(String userShippingName) {
-        this.userShippingName = userShippingName;
-    }
-
-    public String getUserShippingStreet() {
-        return userShippingStreet;
-    }
-
-    public void setUserShippingStreet(String userShippingStreet) {
-        this.userShippingStreet = userShippingStreet;
-    }
-
-    public String getUserShippingCity() {
-        return userShippingCity;
-    }
-
-    public void setUserShippingCity(String userShippingCity) {
-        this.userShippingCity = userShippingCity;
-    }
-
-    public String getUserShippingState() {
-        return userShippingState;
-    }
-
-    public void setUserShippingState(String userShippingState) {
-        this.userShippingState = userShippingState;
-    }
-
-    public String getUserShippingCountry() {
-        return userShippingCountry;
-    }
-
-    public void setUserShippingCountry(String userShippingCountry) {
-        this.userShippingCountry = userShippingCountry;
-    }
-
-    public String getUserShippingZipcode() {
-        return userShippingZipcode;
-    }
-
-    public void setUserShippingZipcode(String userShippingZipcode) {
-        this.userShippingZipcode = userShippingZipcode;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public void setShippingDefault(boolean userShippingDefault) {
-        this.userShippingDefault = userShippingDefault;
-    }
-
-    public boolean isUserShippingDefault() {
-        return userShippingDefault;
-    }
 }

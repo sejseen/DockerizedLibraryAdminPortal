@@ -32,4 +32,7 @@ public class Payment {
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "userPayment")
     private UserBilling userBilling;
+
+    public Payment() {
+    }
 }

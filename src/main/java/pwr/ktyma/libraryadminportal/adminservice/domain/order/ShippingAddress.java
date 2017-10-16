@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 @Getter
@@ -31,6 +32,9 @@ public class ShippingAddress {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @OneToOne
+    private Order order;
 
-
+    public ShippingAddress() {
+    }
 }

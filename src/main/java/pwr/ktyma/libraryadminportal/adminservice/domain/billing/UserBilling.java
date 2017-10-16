@@ -1,5 +1,8 @@
 package pwr.ktyma.libraryadminportal.adminservice.domain.billing;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
+@Getter
+@Setter
 public class UserBilling {
 
     @Id
@@ -23,68 +28,4 @@ public class UserBilling {
 
     @OneToOne(cascade = CascadeType.ALL)
     private UserPayment userPayment;
-
-    public Long getId() {
-        return Id;
-    }
-
-    public void setId(Long id) {
-        Id = id;
-    }
-
-    public String getUserBillingName() {
-        return userBillingName;
-    }
-
-    public void setUserBillingName(String userBillingName) {
-        this.userBillingName = userBillingName;
-    }
-
-    public String getUserBillingStreet() {
-        return userBillingStreet;
-    }
-
-    public void setUserBillingStreet(String userBillingStreet) {
-        this.userBillingStreet = userBillingStreet;
-    }
-
-    public String getUserBillingCity() {
-        return userBillingCity;
-    }
-
-    public void setUserBillingCity(String userBillingCity) {
-        this.userBillingCity = userBillingCity;
-    }
-
-    public String getUserBillingState() {
-        return userBillingState;
-    }
-
-    public void setUserBillingState(String userBillingState) {
-        this.userBillingState = userBillingState;
-    }
-
-    public String getUserBillingCountry() {
-        return userBillingCountry;
-    }
-
-    public void setUserBillingCountry(String userBillingCountry) {
-        this.userBillingCountry = userBillingCountry;
-    }
-
-    public String getUserBillingZipcode() {
-        return userBillingZipcode;
-    }
-
-    public void setUserBillingZipcode(String userBillingZipcode) {
-        this.userBillingZipcode = userBillingZipcode;
-    }
-
-    public UserPayment getUserPayment() {
-        return userPayment;
-    }
-
-    public void setUserPayment(UserPayment userPayment) {
-        this.userPayment = userPayment;
-    }
 }

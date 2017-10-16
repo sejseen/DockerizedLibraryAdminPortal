@@ -27,4 +27,7 @@ public class BillingAddress {
 
     @OneToOne
     private Order order;
+
+    public BillingAddress() {
+    }
 }
