@@ -2,6 +2,9 @@ package pwr.ktyma.libraryadminportal.adminservice.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import pwr.ktyma.libraryadminportal.adminservice.domain.authorise.Authorithy;
@@ -9,6 +12,7 @@ import pwr.ktyma.libraryadminportal.adminservice.domain.authorise.UserRole;
 import pwr.ktyma.libraryadminportal.adminservice.domain.billing.UserPayment;
 import pwr.ktyma.libraryadminportal.adminservice.domain.billing.UserShipping;
 import pwr.ktyma.libraryadminportal.adminservice.domain.order.OnlineShoppingCart;
+import pwr.ktyma.libraryadminportal.adminservice.domain.order.Order;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -17,6 +21,8 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
 public class User implements UserDetails {
 
     @Id
@@ -46,6 +52,9 @@ public class User implements UserDetails {
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
     private OnlineShoppingCart shoppingCart;
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> orderList;
 
     public User() {
     }
@@ -96,80 +105,5 @@ public class User implements UserDetails {
         return this.enabled;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public Set<UserRole> getUserRoles() {
-        return userRoles;
-    }
-
-    public void setUserRoles(Set<UserRole> userRoles) {
-        this.userRoles = userRoles;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public List<UserShipping> getUserShippingList() {
-        return userShippingList;
-    }
-
-    public void setUserShippingList(List<UserShipping> userShippingList) {
-        this.userShippingList = userShippingList;
-    }
-
-    public List<UserPayment> getUserPaymentsList() {
-        return userPaymentsList;
-    }
-
-    public void setUserPaymentsList(List<UserPayment> userPaymentsList) {
-        this.userPaymentsList = userPaymentsList;
-    }
-
-    public OnlineShoppingCart getShoppingCart() {
-        return shoppingCart;
-    }
-
-    public void setShoppingCart(OnlineShoppingCart shoppingCart) {
-        this.shoppingCart = shoppingCart;
-    }
 
 }

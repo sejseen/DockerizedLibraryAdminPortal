@@ -1,5 +1,7 @@
 package pwr.ktyma.libraryadminportal.adminservice.domain.authorise;
 
+import lombok.Getter;
+import lombok.Setter;
 import pwr.ktyma.libraryadminportal.adminservice.domain.User;
 
 import javax.persistence.Entity;
@@ -13,6 +15,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 @Entity
+@Getter
+@Setter
 public class PasswordResetToken {
 
     private static final int EXPIRATION = 24 * 60;
@@ -60,38 +64,6 @@ public class PasswordResetToken {
 
     public static int getEXPIRATION() {
         return EXPIRATION;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public Date getExpirationDate() {
-        return expirationDate;
-    }
-
-    public void setExpirationDate(Date expirationDate) {
-        this.expirationDate = expirationDate;
     }
 
     @Override

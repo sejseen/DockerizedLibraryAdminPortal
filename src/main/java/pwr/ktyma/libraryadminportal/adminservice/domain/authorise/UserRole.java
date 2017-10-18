@@ -1,5 +1,7 @@
 package pwr.ktyma.libraryadminportal.adminservice.domain.authorise;
 
+import lombok.Getter;
+import lombok.Setter;
 import pwr.ktyma.libraryadminportal.adminservice.domain.User;
 
 import javax.persistence.Entity;
@@ -12,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "user_role")
 public class UserRole {
 
@@ -27,16 +31,9 @@ public class UserRole {
     @JoinColumn(name="role_id")
     private Role role;
 
-    public UserRole(){
-
-    }
-
     public UserRole(User user, Role role) {
         this.user = user;
         this.role = role;
     }
 
-    public Role getRole() {
-        return role;
-    }
 }
