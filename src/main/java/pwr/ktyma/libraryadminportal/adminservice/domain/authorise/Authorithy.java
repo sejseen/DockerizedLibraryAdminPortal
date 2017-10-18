@@ -1,10 +1,12 @@
 package pwr.ktyma.libraryadminportal.adminservice.domain.authorise;
 
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 
+@NoArgsConstructor
 public class Authorithy implements GrantedAuthority {
 
-    private final String authorithy;
+    private String authorithy;
 
     public Authorithy(String authorithy) {
         this.authorithy = authorithy;
@@ -14,5 +16,7 @@ public class Authorithy implements GrantedAuthority {
     public String getAuthority() {
         return this.authorithy;
     }
+
+
 
 }

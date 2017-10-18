@@ -31,11 +31,11 @@ public class AdminserviceApplication implements CommandLineRunner{
 //		admin.setEmail("admin@gmail.com");
 //		Set<UserRole> adminRoles = new HashSet<>();
 //		Role adm = new Role();
-//		adm.setRoleId(0);
+//		adm.setRoleId(10);
 //		adm.setName("ROLE_ADMIN");
 //		adminRoles.add(new UserRole(admin, adm));
 //
 //		userService.createUser(admin, adminRoles);
-	}
 
+	}
 }

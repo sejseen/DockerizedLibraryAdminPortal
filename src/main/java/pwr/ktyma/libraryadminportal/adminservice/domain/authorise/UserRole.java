@@ -1,6 +1,7 @@
 package pwr.ktyma.libraryadminportal.adminservice.domain.authorise;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pwr.ktyma.libraryadminportal.adminservice.domain.User;
 
@@ -15,6 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Getter
+@NoArgsConstructor
 @Setter
 @Table(name = "user_role")
 public class UserRole {
