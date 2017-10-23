@@ -2,7 +2,7 @@ $(document).ready(function () {
     $('.delete-book').on('click', function () {
 
         /*<![CDATA[*/
-        var path =/*[[@{/}]]*/'remove';
+        var path =/*[[@{/}]]*/'deleteBook';
         /*]]>*/
         var id=$(this).attr('id');
 

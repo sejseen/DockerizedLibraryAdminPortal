@@ -21,15 +21,14 @@
             <tbody>
                 <tr data-th-each="book : ${bookList}">
                     <input hidden="true" name="id" th:value="${book.id}"/>
-                    <input th:id="'selected' + ${book.id}" class="checkboxBook" type="checkbox"/>
                     <td><a th:href="@{/book/bookInfo(id=${book.id})}"><span th:text="${book.title}" ></span></a></td>
                     <td th:text="${book.author}" ></td>
                     <td th:text="${book.category}" ></td>
                     <td th:text="${book.active}" ></td>
                     <td>
                         <input hidden="true" name="id" th:value="${book.id}"/>
-                        <button th:id="oneBook+${book.id}" class="btn btn-danger btn-xs delete-book" type="submit" value="delete">
-                            <span class="fa fa-times"></span>
+                        <button th:id="'oneBook-'+${book.id}" class="btn btn-danger delete-book" type="submit" value="delete">
+                            <span class="fa fa-times"> Usuń</span>
                         </button>
                     </td>
                 </tr>

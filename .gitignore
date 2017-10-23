@@ -28,3 +28,8 @@ application.properties
 
 ###Image of Books
 #src/main/resources/static/image/book/
+
+###JS stuff
+package-lock.json
+node_modules/
+

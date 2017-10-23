@@ -1,5 +1,6 @@
 package pwr.ktyma.libraryadminportal.adminservice.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +25,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 @Controller
+@Slf4j
 @RequestMapping("/book")
 public class BookController {
 
@@ -77,6 +79,16 @@ public class BookController {
         model.addAttribute("book", book);
 
         return "updateBook";
+    }
+
+    @RequestMapping(value = "/deleteBook", method =RequestMethod.POST)
+    public String deleteBook(@ModelAttribute("id") String id, Model model) {
+        bookService.removeOne(Long.parseLong(id.substring(8)));
+        log.info("Removing book ID");
+        List<Book> allBooks = bookService.findAll();
+        model.addAttribute("allBooks", allBooks);
+
+        return "redirect:/book/bookList";
     }
 
     @RequestMapping(value="/updateBook", method = RequestMethod.POST)

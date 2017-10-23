@@ -1,6 +1,8 @@
 package pwr.ktyma.libraryadminportal.adminservice.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.springframework.web.multipart.MultipartFile;
 import pwr.ktyma.libraryadminportal.adminservice.domain.order.BookToCartItem;
 
@@ -39,6 +41,7 @@ public class Book {
 
 
     @OneToMany(mappedBy = "book")
+    @Cascade(CascadeType.DELETE)
     @JsonIgnore
     private List<BookToCartItem> bookToCartItemList;
 

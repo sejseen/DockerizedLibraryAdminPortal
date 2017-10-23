@@ -3,6 +3,7 @@ package pwr.ktyma.libraryadminportal.adminservice.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pwr.ktyma.libraryadminportal.adminservice.domain.Book;
+import pwr.ktyma.libraryadminportal.adminservice.domain.order.BookToCartItem;
 import pwr.ktyma.libraryadminportal.adminservice.repo.BookRepository;
 import pwr.ktyma.libraryadminportal.adminservice.service.BookService;
 
@@ -28,4 +29,8 @@ public class BookServiceImpl implements BookService {
         return bookRepository.findOne(id);
     }
 
+    @Override
+    public void removeOne(Long Id) {
+        bookRepository.delete(Id);
+    }
 }
