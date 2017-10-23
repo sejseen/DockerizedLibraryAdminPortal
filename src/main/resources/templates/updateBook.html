@@ -122,10 +122,10 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="active">* Status</label>
                     <div class="col-md-8">
-                        <label><input value="true" type="radio" name="active"
+                        <label><input value="true" type="radio" name="active" th:checked="${book.active}"
                                       class="form-control"/> Aktywna
                         </label>
-                        <label><input value="false" type="radio" name="active"
+                        <label><input value="false" type="radio" name="active" th:checked="${!book.active}"
                                       class="form-control"/> Dezaaktywowana
                         </label>
                         <span class="help-block">Czy książka jest aktywna?</span>
