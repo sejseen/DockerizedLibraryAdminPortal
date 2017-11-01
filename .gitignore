@@ -25,6 +25,7 @@ nbdist/
 
 ### Properties
 application.properties
+application.yml
 
 ###Image of Books
 #src/main/resources/static/image/book/
