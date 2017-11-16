@@ -4,6 +4,139 @@
 
 <body>
     <div th:replace="common/header :: navbar" />
+    <div class="page-top"
+         style="width: 100%; height: 20px; background-color: #f46b42;"></div>
+
+    <div class="container">
+        <div class="row">
+            <!-- carousel -->
+
+            <div class="col-xs-12" style=" display: block; margin-left: auto; margin-right: auto">
+                <img th:src="@{/image/logo.png}" class="img-responsive"/>
+            </div>
+            <div class="col-xs-12">
+                <p>
+                <h1 class="title">Portal administracyjny </h1></p>
+            </div>
+        </div>
+
+        <hr/>
+
+
+        <div>
+            <div class="home-headline">
+                <span><a th:href="@{book/add}">Dodawaj nowe pozycje na bieżąco!</a></span>
+            </div>
+            <hr style="margin-top: -15px;"/>
+        </div>
+
+        <div class="row">
+            <div id="featured-books" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#featured-books" data-slide-to="0" class="active"></li>
+                    <li data-target="#featured-books" data-slide-to="1"></li>
+                    <li data-target="#featured-books" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <img class="img-responsive" th:src="@{/image/bookFeatured1.jpg}"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <img class="img-responsive" th:src="@{/image/bookFeatured2.jpg}"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <img class="img-responsive" th:src="@{/image/bookFeatured3.jpg}"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <img class="img-responsive" th:src="@{/image/bookFeatured4.jpg}"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <img class="img-responsive" th:src="@{/image/bookFeatured5.jpg}"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <img class="img-responsive" th:src="@{/image/bookFeatured6.jpg}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <img class="img-responsive" th:src="@{/image/bookFeatured7.jpg}"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <img class="img-responsive" th:src="@{/image/bookFeatured8.jpg}"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <img class="img-responsive" th:src="@{/image/bookFeatured9.jpg}"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <img class="img-responsive" th:src="@{/image/bookFeatured10.jpg}"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <img class="img-responsive" th:src="@{/image/bookFeatured11.jpg}"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <img class="img-responsive" th:src="@{/image/bookFeatured12.jpg}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <img class="img-responsive" th:src="@{/image/bookFeatured13.jpg}"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <img class="img-responsive" th:src="@{/image/bookFeatured14.jpg}"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <img class="img-responsive" th:src="@{/image/bookFeatured15.jpg}"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <img class="img-responsive" th:src="@{/image/bookFeatured16.jpg}"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <img class="img-responsive" th:src="@{/image/bookFeatured17.jpg}"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <img class="img-responsive" th:src="@{/image/bookFeatured18.jpg}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="##featured-books"
+                   role="button" data-slide="prev"> <span
+                        class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a> <a class="right carousel-control" href="##featured-books"
+                        role="button" data-slide="next"> <span
+                    class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only"><i class="fa fa-arrow-right" aria-hidden="true">  Dalej</i>
+</span>
+            </a>
+            </div>
+        </div>
+
+    </div>
+    <!-- end of container -->
+    <div th:replace="common/footer :: footer"/>
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script th:src="@{/js/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/js/dataTables.bootstrap.min.js}"></script>
 
     <div th:replace="common/header :: body-bottom-scripts" />
 </body>
